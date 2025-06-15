@@ -1,16 +1,16 @@
 <!-- Unit 12 Project
 Requirements
-[  ] $() Select by Element, ID AND Class 
-[  ] Use Three Different jQuery Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
+[ x ] $() Select by Element, ID AND Class 
+[ x ] Use Three Different jQuery Methods 
+[ x ] Add Five CSS Declarations
+[ x ] Include Three Images
 
 Select ONE Additional 
 [ no ] Feature 1 - Use .addClass() method
 [ no ] Feature 2 - Use a variable in javaScript 
 [ no ] Feature 3 - Use .mouseover() method
 [ no ] Feature 4 - Use .show() method
-[ no ] Feature 5 - Use .append() method
+[ x ] Feature 5 - Use .append() method
 -->
 
 <!DOCTYPE html>
@@ -37,6 +37,14 @@ Select ONE Additional
         border-radius: 8px;
         margin: 10px;
       }
+      button {
+        margin: 10px;
+        padding: 10px;
+        background-color: lightcoral;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
     </style>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
@@ -50,26 +58,44 @@ Select ONE Additional
     <ol>
       <li>
         <h3 id="mem1" class="memory-title">Memory #1</h3>
-        <p>More about this memory.</p>
+        <p id="desc1">More about this memory.</p>
         <img src="https://via.placeholder.com/150?text=Memory+1" alt="Memory 1" class="memory-image" />
       </li>
 
       <li>
         <h3 id="mem2" class="memory-title">Memory #2</h3>
-        <p>More about this memory.</p>
+        <p id="desc2">More about this memory.</p>
         <img src="https://via.placeholder.com/150?text=Memory+2" alt="Memory 2" class="memory-image" />
       </li>
 
       <li>
         <h3 id="mem3" class="memory-title">Memory #3</h3>
-        <p>More about this memory</p>
-
+        <p id="desc3">More about this memory.</p>
+        <img src="https://via.placeholder.com/150?text=Memory+3" alt="Memory 3" class="memory-image" />
       </li>
     </ol>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      // Select by ID
+      $("#mem1-button").click(function () {
+        $("#mem1").text("Trip to the Beach!");
+        $("#desc1").css("color", "blue");
+      });
 
+      // Select by Class
+      $("#mem2-button").click(function () {
+        $(".memory-title").eq(1).text("Winning the Art Contest!");
+        $("#desc2").css("color", "green");
+      });
+
+      // Select by Element + use append()
+      $("#mem3-button").click(function () {
+        $("h3").eq(2).text("The Last Day of School!");
+        $("#desc3").append(" 🎉 It was the best day ever!");
+        $("#desc3").css("color", "purple");
+      });
+    </script>
   </body>
 </html>
 
-<!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
